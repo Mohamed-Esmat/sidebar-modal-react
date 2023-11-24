@@ -1,209 +1,89 @@
-## Figma URL
+# React Sidebar and Modal Project
 
-[Sidebar and Modal](https://www.figma.com/file/cFyEiRb6jQdVIVK9M5eoe6/Sidebar-and-modal?node-id=0%3A1&t=sg6VSjSNK3T1Uy8P-1)
+## Table of Contents
 
-## Steps
+- [Overview](#overview)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
 
-#### Explore Data
+## Overview
 
-Navigate to data.jsx and explore arrays
+This React project implements a sidebar and modal layout. It provides a clean and customizable solution for integrating these UI elements into your web applications. The project is built using React and utilizes global context for managing the state of the sidebar and modal components.
 
-#### Create Components
+## Demo
 
-Create three components: Home, Modal, and Sidebar. Render them in App.jsx.
+Check out the live demo [here](https://esmat-sidebar-modal.onrender.com/).
 
-#### Global Context
+![Demo pic](https://res.cloudinary.com/tawfeer/image/upload/v1700854909/sidebar-modal-project_z9u55q.png)
 
-Setup global context and don't forget to implement a custom hook.
+## Installation
 
-#### Global State Values
+To get started with this project, follow these steps:
 
-Setup two state values, both booleans, isSidebarOpen and isModalOpen. Also, set up four functions to open and close the modal and sidebar. Make all of these values available in the application.
+1. Clone the repository:
 
-#### Home Component
+   ```bash
+   git clone https://github.com/Mohamed-Esmat/sidebar-modal-react.git
+   ```
 
-In Home, set up two buttons and get two functions from global context, openSidebar and openModal. Once the user clicks the button, invoke one of the functions. Set up CSS for the buttons.
+2. Install dependencies:
 
-#### Modal and Sidebar Component
+   ```bash
+   cd sidebar-modal-react
+   npm install
+   ```
 
-Create a Modal component and add modal CSS. Repeat the same steps with the Sidebar component.
+3. Start the development server:
 
-The flow of the application should look something like this:
+   ```bash
+   npm run dev
+   ```
 
-- Setup global context and implement a custom hook.
+## Usage
 
-- Setup two state values, both booleans, isSidebarOpen and isModalOpen. Also, set up four functions to open and close the modal and sidebar. Make all of these values available in the application.
+### Explore Data
 
-- Create three components: Home, Modal, and Sidebar. Render them in App.jsx.
+Navigate to `src/data.jsx` and explore the arrays used in the project.
 
-- In Home, set up two buttons and get two functions from global context, openSidebar and openModal. Once the user clicks the button, invoke one of the functions. Set up CSS for the buttons.
+### Create Components
 
-- Create a Modal component and add modal CSS. Repeat the same steps with the Sidebar component.
+Three main components are created: `Home`, `Modal`, and `Sidebar`. They are rendered in `src/App.jsx`.
 
-```css
-main {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--grey-100);
-}
-.sidebar-toggle {
-  position: fixed;
-  top: 2rem;
-  left: 3rem;
-  font-size: 2rem;
-  background: transparent;
-  border-color: transparent;
-  color: var(--primary-500);
-  transition: var(--transition);
-  cursor: pointer;
-  animation: bounce 2s ease-in-out infinite;
-}
+### Global Context
 
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+Global context is set up using a custom hook to manage the state of the application.
 
-/*
-=============== 
-Modal
-===============
-*/
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: grid;
-  place-items: center;
-  z-index: -1;
-  visibility: hidden;
-  opacity: 0;
-}
-/* OPEN/CLOSE MODAL */
-.show-modal {
-  opacity: 1;
-  transition-property: opacity;
-  transition-duration: 2s;
-  visibility: visible;
-  z-index: 10;
-}
-.modal-container {
-  background: var(--white);
-  border-radius: var(--borderRadius);
-  width: 90vw;
-  height: 30vh;
-  max-width: var(--fixed-width);
-  text-align: center;
-  display: grid;
-  place-items: center;
-  position: relative;
-}
-.close-modal-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  background: transparent;
-  border-color: transparent;
-  color: var(--red-dark);
-  cursor: pointer;
-}
+### Global State Values
 
-/*
-=============== 
-Sidebar
-===============
-*/
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--white);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  row-gap: 1rem;
-  box-shadow: var(---red-dark);
-  transition: var(--transition);
-  transform: translate(-100%);
-}
-.show-sidebar {
-  transform: translate(0);
-}
-@media screen and (min-width: 676px) {
-  .sidebar {
-    width: 400px;
-  }
-}
+Two boolean state values, `isSidebarOpen` and `isModalOpen`, are set up along with four functions to open and close the modal and sidebar.
 
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-}
-.close-btn {
-  font-size: 1.75rem;
-  background: transparent;
-  border-color: transparent;
-  color: var(--primary-500);
-  cursor: pointer;
-  color: var(--red-dark);
-}
+### Home Component
 
-.logo {
-  height: 40px;
-}
+In the `Home` component, two buttons are set up to invoke functions from the global context (`openSidebar` and `openModal`).
 
-.links a {
-  display: flex;
-  align-items: center;
-  font-size: 1.25rem;
-  text-transform: capitalize;
-  padding: 1rem 1.5rem;
-  color: var(--grey-700);
-  transition: var(--transition);
-  letter-spacing: var(--letterSpacing);
-}
+### Modal and Sidebar Component
 
-.links a:hover {
-  background: var(--grey-100);
-  color: var(--grey-800);
-}
-.links a svg {
-  font-size: 1.5rem;
-  color: var(--grey-500);
-  margin-right: 1rem;
-  transition: var(--transition);
-}
-.links a:hover svg {
-  color: var(--grey-600);
-}
-.social-links {
-  justify-self: center;
-  display: flex;
-  padding-bottom: 2rem;
-}
-.social-links a {
-  font-size: 1.5rem;
-  margin: 0 0.5rem;
-  color: var(--primary-500);
-  transition: var(--transition);
-}
-.social-links a:hover {
-  color: var(--primary-800);
-}
-```
+Separate components are created for the modal and sidebar, each with their respective CSS.
+
+## Components
+
+- **Home**: Main component rendering buttons to trigger sidebar and modal.
+- **Modal**: Component rendering a customizable modal.
+- **Sidebar**: Component rendering a sidebar with navigation links.
+
+## Customization
+
+The CSS files (`src/App.css` and `src/components/Modal.css`, `src/components/Sidebar.css`) provide a clean and modular structure for easy customization. You can modify the styles to match your project's design.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
